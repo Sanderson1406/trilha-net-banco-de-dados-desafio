@@ -1,91 +1,40 @@
 # DIO - Trilha .NET - Banco de Dados
-www.dio.me
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de banco de dados, da trilha .NET da DIO.
+## Visão Geral
+Este projeto é a implementação prática dos conhecimentos adquiridos no módulo de Banco de Dados da **Formação .NET Developer** da DIO. O objetivo central foi atuar como responsável pelo banco de dados de um sistema de filmes e desenvolver um conjunto de consultas SQL para fins de análise e recuperação de dados.
 
-## Contexto
-Você é responsável pelo banco de dados de um site de filmes, onde são armazenados dados sobre os filmes e seus atores. Sendo assim, foi solicitado para que você realize uma consulta no banco de dados com o objetivo de trazer alguns dados para análises.
+O foco foi na utilização de comandos SQL para extrair informações específicas, manipular dados e trabalhar com relacionamentos complexos entre tabelas.
 
-## Proposta
-Você precisará realizar 12 consultas ao banco de dados, cada uma retornando um tipo de informação.
-O seu banco de dados está modelado da seguinte maneira:
+## Contexto do Banco de Dados (Schema)
+
+O banco de dados, denominado `Filmes`, armazena informações sobre filmes, atores e seus gêneros. As tabelas foram modeladas para suportar relacionamentos de *muitos para muitos* (N:N), replicando um cenário comum em sistemas de gerenciamento de conteúdo.
 
 ![Diagrama banco de dados](Imagens/diagrama.png)
 
-As tabelas sao descritas conforme a seguir:
+O banco de dados foi preparado através da execução do script `Script Filmes.sql`.
 
-**Filmes**
+## Consultas Desenvolvidas
 
-Tabela responsável por armazenar informações dos filmes.
+Para atender às necessidades de análise de dados, foram desenvolvidas **12 consultas SQL** que demonstram proficiência em: filtros (`WHERE`), ordenação (`ORDER BY`), agregação (`GROUP BY`) e a união de dados de múltiplas tabelas (`JOIN`).
 
-**Atores**
+Abaixo estão as 12 consultas implementadas para extrair as seguintes informações:
 
-Tabela responsável por armazenar informações dos atores.
+1.  **Listagem Básica:** Nome e ano de todos os filmes.
+2.  **Ordenação:** Nome e ano dos filmes, ordenados por ano (crescente).
+3.  **Filtro Simples:** Nome, ano e duração do filme "De Volta Para o Futuro".
+4.  **Filtro por Ano:** Filmes lançados no ano de 1997.
+5.  **Filtro por Faixa:** Filmes lançados após o ano 2000.
+6.  **Filtro Composto e Ordenação:** Filmes com duração entre 100 e 150 minutos, ordenados pela duração (crescente).
+7.  **Agregação e Agrupamento:** Quantidade de filmes lançados por ano, agrupando e ordenando por ano (decrescente).
+8.  **Filtro por Atributo:** PrimeiroNome e UltimoNome de Atores do gênero masculino.
+9.  **Filtro e Ordenação:** PrimeiroNome e UltimoNome de Atores do gênero feminino, ordenados pelo PrimeiroNome (crescente).
+10. **Relacionamento JOIN (N:N):** Nome do filme e seu gênero.
+11. **Relacionamento e Filtro:** Nome do filme cujo gênero é "Mistério".
+12. **Relacionamento Detalhado:** Nome do filme, PrimeiroNome, UltimoNome e o Papel (personagem) dos atores.
 
-**Generos**
+## Habilidades Demonstradas
 
-Tabela responsável por armazenar os gêneros dos filmes.
-
-**ElencoFilme**
-
-Tabela responsável por representar um relacionamento do tipo muitos para muitos entre filmes e atores, ou seja, um ator pode trabalhar em muitos filmes, e filmes
-podem ter muitos atores.
-
-**FilmesGenero**
-
-Tabela responsável por representar um relacionamento do tipo muitos para muitos entre filmes e gêneros, ou seja, um filme pode ter mais de um gênero, e um genêro pode fazer parte de muitos filmes.
-
-## Preparando o banco de dados
-Você deverá executar o arquivo **Script Filmes.sql** em seu banco de dados SQL Server, presente na pasta Scripts deste repositório ([ou clique aqui](Script%20Filmes.sql)). Esse script irá criar um banco chamado **Filmes**, contendo as tabelas e os dados necessários para você realizar este desafio.
-
-## Objetivo
-Você deverá criar diversas consultas, com o objetivo de retornar os dados a seguir. Abaixo de cada pedido tem o retorno esperado. O seu retorno deve ser igual ao da imagem.
-
-## 1 - Buscar o nome e ano dos filmes
-
-![Exercicio 1](Imagens/1.png)
-
-## 2 - Buscar o nome e ano dos filmes, ordenados por ordem crescente pelo ano
-
-![Exercicio 2](Imagens/2.png)
-
-## 3 - Buscar pelo filme de volta para o futuro, trazendo o nome, ano e a duração
-
-![Exercicio 3](Imagens/3.png)
-
-## 4 - Buscar os filmes lançados em 1997
-
-![Exercicio 4](Imagens/4.png)
-
-## 5 - Buscar os filmes lançados APÓS o ano 2000
-
-![Exercicio 5](Imagens/5.png)
-
-## 6 - Buscar os filmes com a duracao maior que 100 e menor que 150, ordenando pela duracao em ordem crescente
-
-![Exercicio 6](Imagens/6.png)
-
-## 7 - Buscar a quantidade de filmes lançadas no ano, agrupando por ano, ordenando pela duracao em ordem decrescente
-
-![Exercicio 7](Imagens/7.png)
-
-## 8 - Buscar os Atores do gênero masculino, retornando o PrimeiroNome, UltimoNome
-
-![Exercicio 8](Imagens/8.png)
-
-## 9 - Buscar os Atores do gênero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome
-
-![Exercicio 9](Imagens/9.png)
-
-## 10 - Buscar o nome do filme e o gênero
-
-![Exercicio 10](Imagens/10.png)
-
-## 11 - Buscar o nome do filme e o gênero do tipo "Mistério"
-
-![Exercicio 11](Imagens/11.png)
-
-## 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
-
-![Exercicio 12](Imagens/12.png)
+* **SQL Server:** Utilização da linguagem T-SQL.
+* **Modelagem Relacional:** Entendimento e manipulação de relacionamentos N:N.
+* **Consultas Avançadas:** Uso de `INNER JOIN`, `LEFT JOIN`, `WHERE`, `ORDER BY` e funções de agregação (`COUNT`) com `GROUP BY`.
+* **Análise de Dados:** Criação de *queries* para atender requisitos de *Business Intelligence* e extração de dados analíticos.
