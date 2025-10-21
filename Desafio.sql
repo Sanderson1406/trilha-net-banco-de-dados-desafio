@@ -32,25 +32,55 @@ where [Ano] > 2000;
 	--duracao em ordem crescente
 
 select [Nome], [Ano], [Duracao] from [Filmes]
-where [Duracao] > 100
+where [Duracao] > 100 and [Duracao] < 150
 order by [Duracao] 
 
 --7) Buscar a quantidade de filmes lançadas no ano, 
 	--agrupando por ano, ordenando pela duracao
 	--em ordem decrescente
 
-
+select [Ano], count([Ano])
+as Quantidade 
+from [Filmes]
+group by [Ano]
+order by Quantidade desc
 
 --8) Buscar os Atores do gênero masculino,
 	--retornando o PrimeiroNome, UltimoNome
+
+select [PrimeiroNome], [UltimoNome] from [Atores] 
+where [Genero] = 'M'
 
 --9) Buscar os Atores do gênero feminino,
 	--retornando o PrimeiroNome, UltimoNome,
 	--e ordenando pelo PrimeiroNome
 
+select [PrimeiroNome], [UltimoNome] from [Atores]
+where [Genero] = 'F'
+order by [PrimeiroNome]
+
 --10) Buscar o nome do filme e o gênero
+
+select [Nome], [Genero] from [Filmes]
+inner join FilmesGenero
+on [Filmes].Id = [FilmesGenero].IdFilme
+inner join Generos
+on [FilmesGenero].IdGenero = [Generos].Id
 
 --11) Buscar o nome do filme e o gênero do tipo "Mistério"
 
+select [Nome], [Genero] from [Filmes]
+inner join FilmesGenero
+on Filmes.Id = FilmesGenero.IdFilme
+inner join Generos
+on FilmesGenero.IdGenero = Generos.Id
+where Genero = 'Mistério'
+
 --12) Buscar o nome do filme e os atores, trazendo o PrimeiroNome,
 	--UltimoNome e seu Papel
+
+select Nome, PrimeiroNome, UltimoNome, Papel from Filmes
+inner join ElencoFilme
+on Filmes.Id = ElencoFilme.IdFilme
+inner join Atores
+on ElencoFilme.IdAtor = Atores.Id
